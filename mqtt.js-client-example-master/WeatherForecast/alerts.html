@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+
+<body style="font-family: 'montserrat' , sans-serif;
+background-image: url(imgs/Canva2.png);
+background-size:cover;
+background-position: top center; align-items: center;
+background-repeat: no-repeat;
+overflow: hidden;" >
+
+<div style="background-color: white; opacity: 0.8; width: 500px; height: 50px; margin-left: 60%; margin-top: 1%; text-align: center; border-radius: 30%;border: solid 2px; border-color: #184098; "> <p id="alertmsg" style="margin: auto; padding: 2%;">NO ALERT</p></div>
+
+<div style="margin: auto; text-align: center; font-size: 18px; font-weight: 400;">
+    <p style="padding-top: 11%; color: #184098;   font-size: 36px; font-weight: 700;"> Customize your alerts</p>
+
+    <div action="" style="font-weight: 700; text-align: center; background-color: white; width:max-content; height: 50%; margin: auto; border-radius: 10%; padding: 2%;">
+        <label for="Temp">Notify me when the temperature reaches: </label>
+        <input type="text" id="tempthreshold" value="" style="width:50px; padding: 0% 1%; ">
+        <label > °C</label>
+
+        <br>
+        <div style=" margin:auto; text-align: center; width: fit-content; font-weight: 300;">
+            <div style="width: fit-content; text-align: left;">
+                <label for="Rainfall" style="font-weight: 700; margin: auto; text-align: center;">Notify me in case of: </label><br>
+                <input type="checkbox" id="heavy" value=" Heavy rain" style="margin-right: 3%;"><label> Heavy rain</label><br>
+                <input type="checkbox" id="moderate" value=" Moderate rain" style="margin-right: 3%;"><label> Moderate rain</label><br>
+                <input type="checkbox" id="light" value=" Light rain" style="margin-right: 3%;"><label> Light rain</label><br>
+                <input type="checkbox" id="no" value=" No rain" style="margin-right: 3%;"><label> No rain</label>
+            </div>
+            <button  type="button" id = "submitbtn"  class="btn btn-light" style="padding: 5%  10%!important; background-color: #184098; opacity: 0.8; color: white; padding: 3%; display: block; cursor: pointer;   font-family:'montserrat' , sans-serif; font-weight: 700; z-index: 2;">Confirm</button>
+        </div>        
+    </div>   
+</div>
+
+<script>
+
+    document.getElementById("submitbtn").onclick= function() {
+        checkthreshold(); 
+    };
+
+    function checkthreshold()
+    {
+        const temp = document.getElementById("tempthreshold").value ;
+        const Heavyrain_box =  document.getElementById("heavy");
+        const Moderaterain_box =  document.getElementById("moderate");
+        const Lightrain_box =  document.getElementById("light");
+        const Norain_box =  document.getElementById("no");
+
+        const socket = io();
+        socket.on('update', (sensorData) => 
+        {
+            if (temp ==  Math.round(sensorData.Temprature) ) {
+                document.getElementById("alertmsg").innerHTML += "Temperature Alert";
+                socket.emit('publishAlert', 'Temperature Alert');
+            }
+
+            // Check the checkboxes for rainfall
+            if (Heavyrain_box.checked && sensorData.Water_Level > 100) {
+                document.getElementById("alertmsg").innerHTML= "Heavy Rainfall Alert";
+                socket.emit('publishAlert', 'Heavy Rainfall Alert');
+            }
+
+            if (Moderaterain_box.checked && sensorData.Water_Level >= 50 && sensorData.Water_Level <= 100) {
+                document.getElementById("alertmsg").innerHTML= "Moderate Rainfall Alert";
+                socket.emit('publishAlert', 'Moderate Rainfall Alert');
+            }
+
+            if (Lightrain_box.checked && sensorData.Water_Level >= 2 && sensorData.Water_Level < 50) {
+                document.getElementById("alertmsg").innerHTML= "Light Rainfall Alert";
+                socket.emit('publishAlert', 'Light Rainfall Alert');
+            }
+
+            if (Norain_box.checked && sensorData.Water_Level < 2) {
+                document.getElementById("alertmsg").innerHTML= "No Rainfall Alert";
+                socket.emit('publishAlert', 'No Rainfall Alert');
+            }
+
+            if(!Norain_box.checked && !Lightrain_box.checked && !Moderaterain_box.checked && !Heavyrain_box.checked && temp=="")
+            document.getElementById("alertmsg").innerHTML= "NO ALERT";
+        });
+    }
+
+
+        
+
+</script>
+    
+    
+</body>
+
+</html>
