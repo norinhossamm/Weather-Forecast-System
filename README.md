@@ -36,10 +36,6 @@ This page allows users to customize weather alerts. It provides them with the ab
   
 <img width="1440" alt="Screenshot 2024-08-06 at 1 40 15 PM" src="https://github.com/user-attachments/assets/87cf34f9-8f17-40fa-8498-c9b2236eaa09">
 
-
-### 3. Prototype:
-
-
 ## Technical Aspects:
 
 - HTML, CSS, JavaScript: These form the foundation of the web interface, where HTML structures the content, CSS styles it, and JavaScript adds interactivity.
