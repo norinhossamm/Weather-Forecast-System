@@ -2,7 +2,7 @@
 
 Weatherico is an online platform that provides real-time weather updates from sensors and allows users to set personalized alerts for specific weather conditions like temperature, and rainfall, ensuring timely notifications when these thresholds are exceeded.
 
-**Tools Used**:
+**Technologies Used**:
 HTML - CSS - JavaScript - NodeJs - Arduino IDE - HiveMQ Cloud - ESP8266 (WiFi Module) - BMP280 (Temperatrue and Pressure sensor) - LM393 (Raindrop sensor)
 
 ![PHOTO-2024-08-06-14-56-50](https://github.com/user-attachments/assets/d6f25cd9-e3ee-4f46-ac9b-b87f9bcb10b7)
