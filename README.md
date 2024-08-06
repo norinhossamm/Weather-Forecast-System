@@ -42,7 +42,7 @@ This page allows users to customize weather alerts. It provides them with the ab
   
 - Visualization: The model includes a scenic setup with artificial trees and clouds, simulating the environment where the weather data is being collected.
   
-- Integration: The hardware and software are integrated, with the laptop likely processing data received from the sensors on the breadboard, illustrating a complete system setup that facilitates real-time weather monitoring and alerts. 
+- Integration: The hardware and software are integrated, with the laptop processing data received from the sensors on the breadboard, illustrating a complete system setup that facilitates real-time weather monitoring and alerts. 
 
 <div align=center>
 <img width="475" alt="Screenshot 2024-08-06 at 4 31 02 PM" src="https://github.com/user-attachments/assets/515531c4-6c42-4052-9ed8-55dd4e0b029e">
