@@ -37,4 +37,19 @@ This page allows users to customize weather alerts. It provides them with the ab
 
 ### 3. Prototype:
 
-  
+
+## Technical Aspects:
+
+- HTML, CSS, JavaScript: These form the foundation of the web interface, where HTML structures the content, CSS styles it, and JavaScript adds interactivity.
+
+- Node.js: This is used to build scalable, server-side network applications. It interacts with sensors, databases, and other backend services.
+
+- Arduino IDE: Utilized to program microcontrollers (like the ESP8266) for reading sensor data and handling device operations.
+
+- HiveMQ Cloud: Acts as a broker for MQTT, a messaging protocol for the Internet of Things. It enables efficient and real-time communication between devices and the server.
+
+- ESP8266 (WiFi Module): Provides internet connectivity to the microcontroller, enabling it to send and receive data from the web or MQTT server.
+
+- BMP280 (Temperature and Pressure Sensor): Measures atmospheric temperature and pressure. These readings can be used to predict weather conditions.
+
+- LM393 (Raindrop Sensor): Detects raindrop presence, allowing the system to alert users about potential rainfall.
