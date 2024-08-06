@@ -36,18 +36,6 @@ This page allows users to customize weather alerts. It provides them with the ab
   
 <img width="1440" alt="Screenshot 2024-08-06 at 1 40 15 PM" src="https://github.com/user-attachments/assets/87cf34f9-8f17-40fa-8498-c9b2236eaa09">
 
-### 3. Prototype:
-
-- Hardware Setup: Physical model featuring sensors connected to a breadboard and microcontroller, used to detect and measure weather conditions such as temperature, humidity, and rainfall.
-  
-- Visualization: The model includes a scenic setup with artificial trees and clouds, simulating the environment where the weather data is being collected.
-  
-- Integration: The hardware and software are integrated, with the laptop processing data received from the sensors on the breadboard, illustrating a complete system setup that facilitates real-time weather monitoring and alerts. 
-
-<div align=center>
-<img width="475" alt="Screenshot 2024-08-06 at 4 31 02 PM" src="https://github.com/user-attachments/assets/515531c4-6c42-4052-9ed8-55dd4e0b029e">
-</div>
-
 ## Technical Aspects:
 
 - HTML, CSS, JavaScript: These form the foundation of the web interface, where HTML structures the content, CSS styles it, and JavaScript adds interactivity.
